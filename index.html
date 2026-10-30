@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Dil Se Video Call</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
+body{background:#000;overflow:hidden}
+.bg-grid{position:fixed;inset:0;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:4px;z-index:1}
+.bg-grid div{background-size:cover;background-position:center;filter:brightness(0.6)}
+.bg-grid div:nth-child(1){background-image:url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400')}
+.bg-grid div:nth-child(2){background-image:url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400')}
+.bg-grid div:nth-child(3){background-image:url('https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400')}
+.bg-grid div:nth-child(4){background-image:url('https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400')}
+.bg-grid div:nth-child(5){background-image:url('https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400')}
+.bg-grid div:nth-child(6){background-image:url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=400')}
+.overlay{position:fixed;inset:0;z-index:2;background:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.92));}
+.content{position:fixed;inset:0;z-index:3;display:flex;flex-direction:column}
+.header{padding:14px 18px;color:#fff;display:flex;justify-content:space-between}
+.logo{font-weight:900;font-size:20px} .logo span{color:#ff4d6d}
+.center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+.center h1{font-size:48px;color:#fff;line-height:1} .center h1 span{color:#ff4d6d}
+.price-box{margin-top:12px;background:rgba(255,255,255,0.18);border:1px solid #888;padding:10px 22px;border-radius:999px;color:#fff;font-weight:700}
+.btn{margin-top:20px;padding:16px 32px;border-radius:999px;border:none;font-weight:900;background:linear-gradient(90deg,#ff4d6d,#ff8a3d);color:#fff;cursor:pointer}
+#page2{position:fixed;inset:0;z-index:10;background:#111;display:none;align-items:center;justify-content:center;padding:14px}
+#page2.active{display:flex}
+.card{background:#1e1e26;border:1px solid #444;border-radius:24px;padding:18px;max-width:360px;width:100%;text-align:center;color:#fff}
+.qr-box{background:#fff;border-radius:18px;padding:12px}
+.qr-box img{width:100%;max-width:220px;display:block;margin:auto}
+</style>
+</head>
+<body>
+
+<!-- 6 LADKIYON KA GRID BACKGROUND -->
+<div class="bg-grid">
+<div></div><div></div><div></div>
+<div></div><div></div><div></div>
+</div>
+<div class="overlay"></div>
+
+<div class="content">
+<div class="header"><div class="logo">DIL SE <span>VIDEO CALL</span></div><div style="font-size:12px">Private • ₹49</div></div>
+<div class="center">
+<h1>DIL SE<br><span>VIDEO CALL</span></h1>
+<p style="margin-top:8px;color:#ddd;font-size:13px">Tinder-style 6 girls se private chat</p>
+<div class="price-box">₹49 / month</div>
+<button class="btn" onclick="document.getElementById('page2').classList.add('active')">🔓 Unlock Now - ₹49</button>
+</div>
+</div>
+
+<div id="page2">
+<div class="card">
+<div style="font-weight:900">DIL SE <span style="color:#ff4d6d">VIDEO CALL</span></div>
+<div class="qr-box" style="margin-top:12px">
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=upi://pay?pa=meetnow777@ybl%26pn=Dil%20Se%20Video%20Call%26am=49%26cu=INR" alt="QR">
+<p style="color:#000;font-weight:800;margin-top:6px">Scan & Pay ₹49</p>
+<p style="color:#555;font-size:11px">UPI: meetnow777@ybl</p>
+</div>
+<button class="btn" style="width:100%;margin-top:12px" onclick="let u='upi://pay?pa=meetnow777@ybl&pn=Dil%20Se%20Video%20Call&am=49&cu=INR';window.location.href=u;setTimeout(()=>{if(confirm('Payment kiya?')){alert('Pro Activated!');document.getElementById('page2').classList.remove('active')}},1500)">💳 Pay ₹49</button>
+<button onclick="document.getElementById('page2').classList.remove('active')" style="margin-top:10px;background:transparent;border:none;color:#888;cursor:pointer">← Back</button>
+</div>
+</div>
+
+</body>
+</html>
